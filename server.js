@@ -1,21 +1,20 @@
 //Install express server
 const express = require('express');
 const https = require('https')
+//cors
+require('cors')({origin: true,});
 const cors = require('cors');
 const app = express();
-app.use(cors({
-  origin: '*'
-}));
+app.use(cors());
 // Serve only the static files form the dist directory
 app.use(express.static('./dist/client-heroku'));
 var users = ''
 
 const options = {
-  hostname: 'randomuser.me',
-  path: '/api',
+  hostname: 'random-data-api.com',
+  path: '/api/users/random_user?size=10',
   method: 'GET'
 }
-
 function getUsers() {
 
   callback = function (response) {

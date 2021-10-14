@@ -9,6 +9,6 @@ export class GlobalService {
   constructor(private http: HttpClient) { }
 
   getUsers(){
-    return this.http.get('https://vlada-tutorial--heroku.herokuapp.com/random-users')
+    return this.http.get('http://localhost:8082/random-users')
   }
 }
