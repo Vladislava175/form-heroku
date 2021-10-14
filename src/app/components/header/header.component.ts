@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {FormComponent} from "../form/form.component";
-import {MatDialog} from "@angular/material/dialog";
+import {Component, OnInit} from '@angular/core';
+import {GlobalService} from "../../services/global.service";
 
 @Component({
   selector: 'app-header',
@@ -9,11 +8,10 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  constructor(public service: GlobalService) {
+  }
 
   ngOnInit(): void {
   }
-  openDialog(){
-    this.dialog.open(FormComponent);
-  }
+
 }

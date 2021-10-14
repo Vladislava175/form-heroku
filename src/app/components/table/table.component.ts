@@ -9,20 +9,22 @@ import {User} from "../../models/user";
 })
 export class TableComponent implements OnInit {
 
-  constructor(private service: GlobalService) {
+  constructor(public service: GlobalService) {
   }
 
-  users: User[];
 
   ngOnInit(): void {
     this.service.getUsers().subscribe((res: any) => {
-      this.users = JSON.parse(res) as User[];
+      this.service.users = JSON.parse(res) as User[];
     })
   }
 
   delete(id: number) {
-    this.users = this.users.filter(f => f.id != id);
+    this.service.users = this.service.users.filter(f => f.id != id);
   }
 
-
+  edit(user: User) {
+    this.service.user = user;
+    this.service.openDialog();
+  }
 }

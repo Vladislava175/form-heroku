@@ -1,21 +1,66 @@
 <div class="container">
-  <form >
-    <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+  <form [formGroup]="service.userForm">
+    <div class="row">
+      <div class="col-md-6">
+        <label>First Name</label>
+        <input type="text" id="fname"  placeholder="Your name.." formControlName="first_name">
+      </div>
+      <div class="col-md-6">
+        <label>Last Name</label>
+        <input type="text" id="lname" placeholder="Your last name.." formControlName="last_name">
+      </div>
+    </div>
 
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    <div class="row">
+      <div class="col-md-6">
+        <label>Date of birth</label>
+        <input type="text"  placeholder="Your date of birth.." formControlName="date_of_birth">
+      </div>
+      <div class="col-md-6">
+        <label>Email</label>
+        <input type="text" placeholder="Your email.." formControlName="email">
+      </div>
+    </div>
 
-    <label for="country">Country</label>
-    <select id="country" name="country">
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
-    </select>
 
-    <label for="subject">Subject</label>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    <div class="row">
+      <div class="col-md-6">
+        <label>Gender</label>
+        <input type="text"  placeholder="Your gender.." formControlName="gender">
+      </div>
+      <div class="col-md-6">
+        <label>Phone</label>
+        <input type="text" placeholder="Your phone number.." formControlName="phone_number">
+      </div>
+    </div>
 
-   <button mat-button>Submit</button>
+    <div class="row">
+      <div class="col-md-6">
+        <label>Username</label>
+        <input type="text"  placeholder="Choose your username.." formControlName="username">
+      </div>
+      <div class="col-md-6">
+        <label>Social insurance</label>
+        <input type="text" placeholder="Your Social insurance number.." formControlName="social_insurance_number">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <label>Country</label>
+        <input type="text"  placeholder="Your country.." formControlName="country">
+      </div>
+      <div class="col-md-4">
+        <label>City</label>
+        <input type="text" placeholder="Your city.." formControlName="city">
+      </div>
+      <div class="col-md-4">
+        <label>Street</label>
+        <input type="text" placeholder="Your street.." formControlName="street_name">
+      </div>
+    </div>
+    <button mat-button (click)="service.editList()">{{service.user ? 'Edit' : 'Save'}}</button>
+    <button  mat-button [mat-dialog-close]="true">Cancel</button>
+
   </form>
 </div>

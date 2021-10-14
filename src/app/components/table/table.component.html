@@ -1,7 +1,7 @@
 
 <app-header></app-header>
-<div *ngIf="users">
-  <div class="container" *ngFor="let user of users">
+<div *ngIf="service.users">
+  <div class="container" *ngFor="let user of service.users">
     <div class="row">
       <div class="col-md-6 img">
         <img [src]="user.avatar" alt="" class="img-rounded">
@@ -17,7 +17,7 @@
          {{user.phone_number}} <br>
         </p>
         <div>
-          <button mat-button >Edit</button>
+          <button mat-button (click)="edit(user)">Edit</button>
           <button mat-button (click)="delete(user.id)" color="warn">Delete</button>
         </div>
       </div>

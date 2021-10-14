@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { HeaderComponent } from './components/header/header.component';
+import {ReactiveFormsModule} from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,10 +22,12 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     // material
     BrowserAnimationsModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   entryComponents:[FormComponent],
   providers: [],
