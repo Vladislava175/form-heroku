@@ -7,4 +7,8 @@ import {HttpClient} from "@angular/common/http";
 export class GlobalService {
 
   constructor(private http: HttpClient) { }
+
+  getUsers(){
+    return this.http.get('https://vlada-tutorial--heroku.herokuapp.com/random-users')
+  }
 }

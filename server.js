@@ -1,7 +1,11 @@
 //Install express server
 const express = require('express');
 const https = require('https')
+const cors = require('cors');
 const app = express();
+app.use(cors({
+  origin: '*'
+}));
 // Serve only the static files form the dist directory
 app.use(express.static('./dist/client-heroku'));
 var users = ''
@@ -41,6 +45,6 @@ app.get("/random-users", (req, res, next) => {
 });
 
 // Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080, () => {
+app.listen(process.env.PORT || 8082, () => {
   console.log("Server running on port 8081");
 });
