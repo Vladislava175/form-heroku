@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import {GlobalService} from "../../services/global.service";
-import {FormComponent} from "../form/form.component";
+import {User} from "../../models/user";
 
 @Component({
   selector: 'app-table',
@@ -13,11 +12,11 @@ export class TableComponent implements OnInit {
   constructor(private service: GlobalService) {
   }
 
-  users: any[];
+  users: User[];
 
   ngOnInit(): void {
     this.service.getUsers().subscribe((res: any) => {
-      this.users = JSON.parse(res);
+      this.users = JSON.parse(res) as User[];
     })
   }
 

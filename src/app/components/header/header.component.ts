@@ -15,13 +15,5 @@ export class HeaderComponent implements OnInit {
   }
   openDialog(){
     this.dialog.open(FormComponent);
-    const dialogRef = this.dialog.open(FormComponent, {
-      width: '250px',
-      data: {}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
   }
 }

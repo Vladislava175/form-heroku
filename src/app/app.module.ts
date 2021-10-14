@@ -26,6 +26,7 @@ import { HeaderComponent } from './components/header/header.component';
     MatDialogModule,
     MatButtonModule
   ],
+  entryComponents:[FormComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
