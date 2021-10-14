@@ -2,7 +2,7 @@
 const express = require('express');
 const https = require('https')
 //cors
-require('cors')({origin: true,});
+require('cors')({origin: true});
 const cors = require('cors');
 const app = express();
 app.use(cors());
