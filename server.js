@@ -2,7 +2,7 @@
 const express = require('express');
 const https = require('https')
 //cors
-require('cors')({origin: true,});
+require('cors')({origin: true});
 const cors = require('cors');
 const app = express();
 app.use(cors());
@@ -35,7 +35,7 @@ function getUsers() {
   return users;
 }
 
-app.get('/', (req, res) =>
+app.get('/*', (req, res) =>
   res.sendFile('index.html', {root: 'dist/client-heroku/'}),
 );
 app.get("/random-users", (req, res, next) => {
@@ -44,6 +44,4 @@ app.get("/random-users", (req, res, next) => {
 });
 
 // Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080, () => {
-  console.log("Server running on port 8081");
-});
+app.listen(process.env.PORT || 8080);
