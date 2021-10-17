@@ -2,10 +2,10 @@
 const express = require('express');
 const https = require('https')
 //cors
-require('cors')({origin: true});
-const cors = require('cors');
+/*require('cors')({origin: true});
+const cors = require('cors');*/
 const app = express();
-app.use(cors());
+// app.use(cors());
 // Serve only the static files form the dist directory
 app.use(express.static('./dist/client-heroku'));
 var users = ''
