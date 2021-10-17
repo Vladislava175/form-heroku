@@ -18,7 +18,7 @@ export class GlobalService {
 
 
   getUsers() {
-   return this.http.get('https://vlada-tutorial--heroku.herokuapp.com/random-users')
+ //  return this.http.get('https://vlada-tutorial--heroku.herokuapp.com/random-users')
   }
 
   openDialog() {

@@ -15,7 +15,7 @@ const options = {
   path: '/api/users/random_user?size=10',
   method: 'GET'
 }
-function getUsers() {
+/*function getUsers() {
 
   callback = function (response) {
     var str = ''
@@ -33,15 +33,15 @@ function getUsers() {
   req.write("hello world!");
   req.end();
   return users;
-}
+}*/
 
-app.get('/', (req, res) =>
+app.get('/*', (req, res) =>
   res.sendFile('index.html', {root: 'dist/client-heroku/'}),
 );
-app.get("/random-users", (req, res, next) => {
+/*app.get("/random-users", (req, res, next) => {
   var u = getUsers()
   res.json(u)
-});
+});*/
 
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
