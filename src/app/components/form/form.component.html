@@ -18,7 +18,8 @@
       </div>
       <div class="col-md-6">
         <label class="required">Email</label>
-        <input type="text" placeholder="Your email.." formControlName="email">
+        <input type="email" class="form-control" placeholder="Your email.." formControlName="email">
+        <small *ngIf="emailError" class="text-danger">Please provide a valid email address</small>
       </div>
     </div>
 
@@ -27,6 +28,7 @@
       <div class="col-md-6">
         <label class="required">Gender</label>
         <select placeholder="Your gender.." formControlName="gender" required>
+          <option  disabled selected value="" >Gender</option>
           <option *ngFor="let g of genders" [value]="g">{{g}}</option>
         </select>
       </div>
@@ -58,6 +60,6 @@
     </div>
     <button mat-button (click)="service.editList()"
             [disabled]="service.userForm.invalid" color="primary">{{service.user ? 'Edit' : 'Save'}}</button>
-    <button mat-button [mat-dialog-close]="true" >Cancel</button>
+    <button mat-button [mat-dialog-close]="true">Cancel</button>
   </form>
 </div>

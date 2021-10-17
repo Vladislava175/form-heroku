@@ -40,4 +40,9 @@ export class FormComponent implements OnInit {
       this.service.userForm.patchValue({avatar:this.url});
     }
   }
+
+  get emailError(){
+    return this.service.userForm.controls.email.invalid
+      &&  this.service.userForm.controls.email.dirty
+  }
 }
