@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-md-6">
         <label>Date of birth</label>
-        <input type="text"  placeholder="Your date of birth.." formControlName="date_of_birth">
+        <input type="date"  placeholder="Your date of birth.." formControlName="date_of_birth">
       </div>
       <div class="col-md-6">
         <label>Email</label>
@@ -26,7 +26,9 @@
     <div class="row">
       <div class="col-md-6">
         <label>Gender</label>
-        <input type="text"  placeholder="Your gender.." formControlName="gender">
+        <select placeholder="Your gender.." formControlName="gender" required>
+          <option *ngFor="let g of genders" [value]="g">{{g}}</option>
+        </select>
       </div>
       <div class="col-md-6">
         <label>Phone</label>
@@ -59,8 +61,16 @@
         <input type="text" placeholder="Your street.." formControlName="street_name">
       </div>
     </div>
-    <button mat-button (click)="service.editList()">{{service.user ? 'Edit' : 'Save'}}</button>
-    <button  mat-button [mat-dialog-close]="true">Cancel</button>
+    <div style="text-align:center">
+      <label>Avatar</label>
 
+      <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
+      <div><img [src]="url" *ngIf="url"></div>
+      <p>
+        <input type="file" (change)="selectFile($event)">
+      </p>
+    </div>
+    <button mat-button (click)="service.editList()" [disabled]="service.userForm.invalid">{{service.user ? 'Edit' : 'Save'}}</button>
+    <button  mat-button [mat-dialog-close]="true">Cancel</button>
   </form>
 </div>

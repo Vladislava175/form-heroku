@@ -1,20 +1,22 @@
-
 <app-header></app-header>
 <div *ngIf="service.users">
   <div class="container" *ngFor="let user of service.users">
     <div class="row">
-      <div class="col-md-6 img">
+      <div class="col-md-1">
+        <p>ID: {{user.id}}</p>
+      </div>
+      <div class="col-md-5 img">
         <img [src]="user.avatar" alt="" class="img-rounded">
       </div>
       <div class="col-md-6 details">
-        <blockquote>
-          <h5>{{user.first_name}}, {{user.last_name}}</h5>
-          <small><cite title="Source Title"> {{user.address.country}},{{user.address.city}}
-            , {{user.address.street_name}}<i class="icon-map-marker"></i></cite></small>
-        </blockquote>
+          <p>Full Name: {{user.first_name}}, {{user.last_name}}</p>
+
         <p>
-          {{user.email}} <br>
-         {{user.phone_number}} <br>
+          Email:   {{user.email}} <br>
+          Phone:  {{user.phone_number}} <br>
+          Gender:  {{user.gender}} <br>
+          Birth:  {{user.date_of_birth}} <br>
+
         </p>
         <div>
           <button mat-button (click)="edit(user)">Edit</button>

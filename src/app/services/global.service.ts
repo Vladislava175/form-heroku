@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../models/user";
 import {FormComponent} from "../components/form/form.component";
 import {MatDialog} from "@angular/material/dialog";
@@ -33,18 +33,18 @@ export class GlobalService {
   init() {
     this.userForm = new FormGroup({
       id: new FormControl(this.user ? this.user.id : ''),
-      first_name: new FormControl(this.user ? this.user.first_name : ''),
-      last_name: new FormControl(this.user ? this.user.last_name : ''),
+      first_name: new FormControl(this.user ? this.user.first_name : '', [Validators.required]),
+      last_name: new FormControl(this.user ? this.user.last_name : '', [Validators.required]),
       avatar: new FormControl(this.user ? this.user.avatar : ''),
-      date_of_birth: new FormControl(this.user ? this.user.date_of_birth : ''),
-      email: new FormControl(this.user ? this.user.email : ''),
-      gender: new FormControl(this.user ? this.user.gender : ''),
-      phone_number: new FormControl(this.user ? this.user.phone_number : ''),
+      date_of_birth: new FormControl(this.user ? this.user.date_of_birth : '', [Validators.required]),
+      email: new FormControl(this.user ? this.user.email : '', [Validators.required, Validators.email]),
+      gender: new FormControl(this.user ? this.user.gender : '', [Validators.required]),
+      phone_number: new FormControl(this.user ? this.user.phone_number : '', [Validators.required]),
       social_insurance_number: new FormControl(this.user ? this.user.social_insurance_number : ''),
       username: new FormControl(this.user ? this.user.username : ''),
       country: new FormControl(this.user ? this.user.address.country : ''),
       city: new FormControl(this.user ? this.user.address.city : ''),
-      street_name: new FormControl(this.user ? this.user.address.street_name : ''),
+      street_name: new FormControl(this.user ? this.user.address.street_name : '')
     })
   }
 
@@ -60,5 +60,6 @@ export class GlobalService {
       this.users.push(this.userForm.getRawValue());
     }
     this.user = null;
+    this.dialog.closeAll();
   }
 }
