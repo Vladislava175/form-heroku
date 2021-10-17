@@ -14,9 +14,9 @@ export class TableComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.service.getUsers().subscribe((res: any) => {
-      this.service.users = [];
-    // })
+    this.service.getUsers().subscribe((res: any) => {
+      this.service.users = JSON.parse(res) as User[];
+    })
   }
 
   delete(id: number) {

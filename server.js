@@ -35,7 +35,7 @@ function getUsers() {
   return users;
 }
 
-app.get('/*', (req, res) =>
+app.get('/', (req, res) =>
   res.sendFile('index.html', {root: 'dist/client-heroku/'}),
 );
 app.get("/random-users", (req, res, next) => {
