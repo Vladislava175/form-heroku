@@ -2,22 +2,22 @@
   <form [formGroup]="service.userForm">
     <div class="row">
       <div class="col-md-6">
-        <label>First Name</label>
-        <input type="text" id="fname"  placeholder="Your name.." formControlName="first_name">
+        <label class="required"> First Name</label>
+        <input type="text" id="fname" placeholder="Your name.." formControlName="first_name">
       </div>
       <div class="col-md-6">
-        <label>Last Name</label>
+        <label class="required">Last Name</label>
         <input type="text" id="lname" placeholder="Your last name.." formControlName="last_name">
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-6">
-        <label>Date of birth</label>
-        <input type="date"  placeholder="Your date of birth.." formControlName="date_of_birth">
+        <label class="required">Date of birth</label>
+        <input type="date" placeholder="Your date of birth.." formControlName="date_of_birth">
       </div>
       <div class="col-md-6">
-        <label>Email</label>
+        <label class="required">Email</label>
         <input type="text" placeholder="Your email.." formControlName="email">
       </div>
     </div>
@@ -25,13 +25,13 @@
 
     <div class="row">
       <div class="col-md-6">
-        <label>Gender</label>
+        <label class="required">Gender</label>
         <select placeholder="Your gender.." formControlName="gender" required>
           <option *ngFor="let g of genders" [value]="g">{{g}}</option>
         </select>
       </div>
       <div class="col-md-6">
-        <label>Phone</label>
+        <label class="required">Phone</label>
         <input type="text" placeholder="Your phone number.." formControlName="phone_number">
       </div>
     </div>
@@ -39,7 +39,7 @@
     <div class="row">
       <div class="col-md-6">
         <label>Username</label>
-        <input type="text"  placeholder="Choose your username.." formControlName="username">
+        <input type="text" placeholder="Choose your username.." formControlName="username">
       </div>
       <div class="col-md-6">
         <label>Social insurance</label>
@@ -47,20 +47,6 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-4">
-        <label>Country</label>
-        <input type="text"  placeholder="Your country.." formControlName="country">
-      </div>
-      <div class="col-md-4">
-        <label>City</label>
-        <input type="text" placeholder="Your city.." formControlName="city">
-      </div>
-      <div class="col-md-4">
-        <label>Street</label>
-        <input type="text" placeholder="Your street.." formControlName="street_name">
-      </div>
-    </div>
     <div style="text-align:center">
       <label>Avatar</label>
 
@@ -70,7 +56,8 @@
         <input type="file" (change)="selectFile($event)">
       </p>
     </div>
-    <button mat-button (click)="service.editList()" [disabled]="service.userForm.invalid">{{service.user ? 'Edit' : 'Save'}}</button>
-    <button  mat-button [mat-dialog-close]="true">Cancel</button>
+    <button mat-button (click)="service.editList()"
+            [disabled]="service.userForm.invalid" color="primary">{{service.user ? 'Edit' : 'Save'}}</button>
+    <button mat-button [mat-dialog-close]="true" >Cancel</button>
   </form>
 </div>

@@ -23,7 +23,8 @@ export class GlobalService {
 
   openDialog() {
     let ref = this.dialog.open(FormComponent, {
-      disableClose: true
+      disableClose: true,
+      panelClass:'dialog-responsive'
     });
     ref.afterClosed().subscribe(() => {
       this.user = null;
@@ -41,10 +42,7 @@ export class GlobalService {
       gender: new FormControl(this.user ? this.user.gender : '', [Validators.required]),
       phone_number: new FormControl(this.user ? this.user.phone_number : '', [Validators.required]),
       social_insurance_number: new FormControl(this.user ? this.user.social_insurance_number : ''),
-      username: new FormControl(this.user ? this.user.username : ''),
-      country: new FormControl(this.user ? this.user.address.country : ''),
-      city: new FormControl(this.user ? this.user.address.city : ''),
-      street_name: new FormControl(this.user ? this.user.address.street_name : '')
+      username: new FormControl(this.user ? this.user.username : '')
     })
   }
 
@@ -55,7 +53,9 @@ export class GlobalService {
       this.users[index] = this.userForm.getRawValue();
     } else {
       const ids = this.users.map(user => user.id);
-      let max = Math.max.apply(null, ids);
+      // create max+1 id for new item before save in list
+      let max = Math.max.apply(null, ids) + 1;
+
       this.userForm.patchValue({id: max});
       this.users.push(this.userForm.getRawValue());
     }
